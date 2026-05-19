@@ -25,13 +25,13 @@ export const getOrders = () => Promise.resolve(orders);
 
 export const placeOrder = (studentId, cartItems, total) => {
   const newOrder = {
-    id: \`ORD-\${Math.floor(Math.random() * 10000)}\`,
+    id: `ORD-${Math.floor(Math.random() * 10000)}`,
     studentId,
     items: cartItems,
     total,
     status: "Received",
     time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-    token: \`T-\${Math.floor(Math.random() * 100)}\`
+    token: `T-${Math.floor(Math.random() * 100)}`
   };
   orders = [newOrder, ...orders];
   return Promise.resolve(newOrder);

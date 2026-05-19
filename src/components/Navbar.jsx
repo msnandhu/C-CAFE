@@ -27,7 +27,7 @@ const Navbar = ({ title, showBack = false, showCart = false, cartCount = 0 }) =>
             )}
           </div>
         )}
-        <div style={{ background: 'var(--bg-secondary)', padding: '0.5rem', borderRadius: '50%', cursor: 'pointer' }}>
+        <div style={{ background: 'var(--bg-secondary)', padding: '0.5rem', borderRadius: '50%', cursor: 'pointer' }} onClick={() => navigate('/profile')}>
           <User size={20} color="var(--accent-primary)" />
         </div>
       </div>

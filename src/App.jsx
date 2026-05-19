@@ -9,6 +9,7 @@ import MenuPage from './pages/Student/MenuPage';
 import ItemDetail from './pages/Student/ItemDetail';
 import CartCheckout from './pages/Student/CartCheckout';
 import LiveTracking from './pages/Student/LiveTracking';
+import ProfilePage from './pages/Student/ProfilePage';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/AdminLogin';
@@ -55,6 +56,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetail addToCart={addToCart} />} />
           <Route path="/cart" element={<CartCheckout cart={cart} updateCartQuantity={updateCartQuantity} student={student} clearCart={clearCart} />} />
           <Route path="/track/:orderId" element={<LiveTracking />} />
+          <Route path="/profile" element={student ? <ProfilePage student={student} setStudent={setStudent} /> : <Navigate to="/login" />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />

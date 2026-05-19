@@ -46,7 +46,7 @@ const Dashboard = ({ student }) => {
         <h3 style={{ marginBottom: '1rem' }}>Active Orders</h3>
         {recentOrders.length > 0 ? (
           recentOrders.map(order => (
-            <div key={order.id} className="card glass" style={{ marginBottom: '1rem', cursor: 'pointer' }} onClick={() => navigate(\`/track/\${order.id}\`)}>
+            <div key={order.id} className="card glass" style={{ marginBottom: '1rem', cursor: 'pointer' }} onClick={() => navigate(`/track/${order.id}`)}>
               <div className="flex-between" style={{ marginBottom: '0.5rem' }}>
                 <span className="badge badge-info">{order.status}</span>
                 <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>{order.time}</span>
