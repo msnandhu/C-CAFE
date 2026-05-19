@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<!-- saved from url=(0012)about:srcdoc -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Admin Portal - UniDine</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "outline": "#757682",
+                        "outline-variant": "#c5c6d2",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary-container": "#dde0e3",
+                        "tertiary-fixed-dim": "#b8c8da",
+                        "primary-container": "#002366",
+                        "surface-container-high": "#e9e7ee",
+                        "inverse-primary": "#b3c5ff",
+                        "on-tertiary-fixed-variant": "#394857",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#8191a2",
+                        "inverse-surface": "#2f3035",
+                        "surface-container": "#efedf3",
+                        "on-surface-variant": "#444650",
+                        "surface-bright": "#faf8ff",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "surface-dim": "#dad9e0",
+                        "on-tertiary-fixed": "#0d1d2a",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#d4e4f6",
+                        "on-background": "#1a1b20",
+                        "surface-tint": "#435b9f",
+                        "tertiary-container": "#1a2a37",
+                        "secondary": "#5b5f62",
+                        "secondary-fixed": "#e0e3e6",
+                        "surface-container-low": "#f4f3f9",
+                        "on-secondary-container": "#5f6366",
+                        "inverse-on-surface": "#f1f0f6",
+                        "error": "#ba1a1a",
+                        "primary": "#00113a",
+                        "on-primary-fixed": "#00174a",
+                        "on-primary-container": "#758dd5",
+                        "on-surface": "#1a1b20",
+                        "on-primary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#181c1e",
+                        "on-primary-fixed-variant": "#2a4386",
+                        "surface-variant": "#e3e2e8",
+                        "surface-container-highest": "#e3e2e8",
+                        "tertiary": "#051522"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F4F7FA; }
+    </style>
+<style data-stitch-injected="">
+  /* For Webkit Browsers (Chrome, Safari, Edge) */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-width: none;
+  }
+
+  /* For IE/Edge */
+  body {
+    -ms-overflow-style: none;
+    min-height: auto !important;
+  }
+</style><script data-stitch-injected="">(function Ve(){window.addEventListener(`message`,async function(e){let t=e.data;if(!t||t.type!==`capture_screenshot`||e.source!==window.parent)return;let n=t.requestId,r=t.captureEngineSource,i=t.options||{},a=window.innerWidth,o=window.innerHeight,s=window.scrollX,c=window.scrollY,l=document.documentElement,u=l.style.width,d=l.style.height,f=l.style.overflow,p=l.style.position;try{if(!window.snapdom&&r){let e=document.createElement(`script`);e.setAttribute(`data-stitch-injected`,``),e.textContent=r,document.head.appendChild(e)}let e=window.snapdom;if(!e){window.parent.postMessage({type:`screenshot_error`,requestId:n,errorCode:`CAPTURE_ENGINE_UNAVAILABLE`,error:`Capture engine not available. Ensure source is sent with the capture request.`},`*`);return}let t=i.exclude||[`[data-stitch-injected]`];window.scrollTo(0,0),l.style.width=a+`px`,l.style.height=o+`px`,l.style.overflow=`hidden`,l.style.position=`relative`;let u=await(await e(document.documentElement,{exclude:t,embedFonts:!0,scale:i.scale||1,plugins:[{name:`stitch-viewport-clip`,afterClone:function(e){let t=e.clone;if(!(t instanceof HTMLElement))return;t.style.position=`relative`,t.style.width=a+`px`,t.style.height=o+`px`,t.style.overflow=`hidden`;let n=[],r=t.querySelectorAll(`*`);for(let e=0;e<r.length;e++){let t=r[e];t instanceof HTMLElement&&(t.style.position||(t.__snapdomComputedStyle||window.getComputedStyle(t)).position)===`fixed`&&n.push(t)}if(s!==0||c!==0){let e=t.querySelector(`body`);e&&(e.style.marginTop=-c+`px`,e.style.marginLeft=-s+`px`)}for(let e=0;e<n.length;e++)n[e].style.position=`absolute`,t.appendChild(n[e])}}]})).toCanvas({width:a,height:o}),d=i.format||`image/jpeg`,f=i.quality??.8,p=u.toDataURL(d,f);window.parent.postMessage({type:`screenshot_captured`,requestId:n,dataUrl:p,width:a,height:o},`*`)}catch(e){window.parent.postMessage({type:`screenshot_error`,requestId:n,error:e instanceof Error?e.message:String(e)},`*`)}finally{l.style.width=u,l.style.height=d,l.style.overflow=f,l.style.position=p,window.scrollTo(s,c)}})})();</script><script data-stitch-injected="">(function We(){let e=`__stitch-highlight-css`,t=`stitch-highlight-element`,n=null;function r(){if(document.getElementById(e))return;let n=document.createElement(`style`);n.id=e,n.textContent=[`@keyframes stitch-highlight-pulse {`,`  0%, 100% { box-shadow: 0 0 0 3px rgba(113,105,237,0.8), 0 0 12px 4px rgba(113,105,237,0.3); }`,`  50%      { box-shadow: 0 0 0 3px rgba(113,105,237,0.4), 0 0 6px 2px rgba(113,105,237,0.15); }`,`}`,`.`+t+` {`,`  outline: 3px solid rgba(113,105,237,0.8) !important;`,`  outline-offset: 2px !important;`,`  animation: stitch-highlight-pulse 1.5s ease-in-out infinite !important;`,`  border-radius: inherit;`,`}`].join(`
+`),document.head.appendChild(n)}function i(e){let t=e.toLowerCase().trim(),n=document.createTreeWalker(document.body,NodeFilter.SHOW_ELEMENT,null),r=null,i=-1,a=n.nextNode();for(;a;){if((a.textContent||``).trim().toLowerCase().includes(t)){let e=0,t=a.parentElement;for(;t;)e++,t=t.parentElement;e>i&&(i=e,r=a)}a=n.nextNode()}return r}function a(e){setTimeout(function(){let t=e.getBoundingClientRect(),n=window.innerWidth||1,r=window.innerHeight||1;window.parent.postMessage({type:`stitch:highlight-element-rect`,normalizedX:(t.left+t.width/2)/n,normalizedY:(t.top+t.height/2)/r,normalizedWidth:t.width/n,normalizedHeight:t.height/r},`*`)},400)}window.addEventListener(`message`,function(e){if(!e.data||e.data.type!==`stitch:highlight-element`)return;n&&=(n.classList.remove(t),null);let{text:o,selector:s}=e.data;if(!o&&!s)return;r();let c=null;if(o&&(c=i(o)),!c&&s)try{c=document.querySelector(s)}catch{}c&&(c.classList.add(t),c.scrollIntoView({behavior:`smooth`,block:`center`}),n=c,a(c))})})();</script><script data-stitch-injected="">
+      window.__PROTOTYPE_LINKS__ = [{"xpath":"//a[contains(., 'Orders')]","targetScreenId":"ec3df82b68894bb0a9e3a10c337e487d","state":"1","transition":"none"},{"xpath":"//a[contains(., 'Inventory') or contains(., 'Items')]","targetScreenId":"4b4581bb89a1490ba564524a07c80d4b","state":"1","transition":"none"},{"xpath":"//a[contains(., 'QR Scanner')]","targetScreenId":"e91ef2a759354d67a0fe8dc4b417d225","state":"1","transition":"none"}];
+      window.__PROTOTYPE_INITIAL_STATE__ = "1";
+      
+  (function() {
+    const SCRIPT_VERSION = '2.0.0 - Unified Run/Connect';
+
+    // --- Cleanup Previous Instance ---
+    if (window.__PROTOTYPE_V2_CLEANUP__ && typeof window.__PROTOTYPE_V2_CLEANUP__ === 'function') {
+      window.__PROTOTYPE_V2_CLEANUP__();
+    }
+
+    // --- Configuration ---
+    const HOVER_CLASS = 'interactive-hover';
+    const SELECTED_CLASS = 'interactive-selected';
+    const CONNECTED_CLASS = 'interactive-connected';
+    const RUN_LINK_CLASS = 'prototype-link-hover';
+    const HOTSPOT_CLASS = 'prototype-hotspot';
+    
+    // Style IDs
+    const CONNECT_STYLE_ID = 'interactive-mode-styles';
+    const RUN_STYLE_ID = 'prototype-run-styles';
+
+    // Tags that support inline text editing via double-click
+    var TEXT_EDITABLE_TAGS = {
+      H1:1, H2:1, H3:1, H4:1, H5:1, H6:1,
+      P:1, SPAN:1, BUTTON:1, A:1, LABEL:1,
+      LI:1, TD:1, TH:1, BLOCKQUOTE:1
+    };
+
+    // State
+    let mode = 'run'; // 'run' | 'connect'
+    let currentState = window.__PROTOTYPE_INITIAL_STATE__ || '1';
+    let links = window.__PROTOTYPE_LINKS__ || [];
+    let hotspotsVisible = window.__HOTSPOTS_INITIAL__ !== undefined ? window.__HOTSPOTS_INITIAL__ : true;
+    let selectedElement = null;
+    let interactive = true; // false when parent UI (edit dialog) should suppress iframe interactions
+
+    // --- Helper: XPath Evaluator ---
+    function getElementByXPath(xpath) {
+      const evaluate = (expr) => {
+        try {
+          return document.evaluate(
+            expr, 
+            document, 
+            null, 
+            XPathResult.FIRST_ORDERED_NODE_TYPE, 
+            null
+          ).singleNodeValue;
+        } catch (e) {
+          console.warn('XPath evaluation failed:', expr, e);
+          return null;
+        }
+      };
+
+      // 1. Try direct evaluation
+      let result = evaluate(xpath);
+      
+      // 2. Try lowercased evaluation
+      if (!result) {
+        const lower = xpath.toLowerCase();
+        if (lower !== xpath) {
+             result = evaluate(lower);
+        }
+      }
+
+      // 3. Manual Traversal Fallback (Robust against case/browser quirks)
+      if (!result) {
+        try {
+          const parts = xpath.split('/').filter(p => p && p !== 'html'); // internal path often starts after html? or includes it. 
+          // Our getXPath returns e.g. "id('foo')" or "body/div[1]..."
+          
+          if (xpath.startsWith('id(')) {
+             // Already handled by evaluate usually, but manual fallback:
+             const idContent = xpath.match(/id("([^"]+)")/);
+             if (idContent && idContent[1]) {
+               return document.getElementById(idContent[1]);
+             }
+          }
+
+          let current = document.body; // Start at body? Or root?
+          // If path starts with "body", we start at document.body and consume it? 
+          // getXPathForElement returns "body/div[1]" if starting at body.
+          // So if parts[0] is "body", we use current=document.body and shift.
+          
+          if (parts[0].toLowerCase().startsWith('body')) {
+             parts.shift();
+          } else if (parts[0].toLowerCase().startsWith('html')) {
+             parts.shift();
+             if (parts.length > 0 && parts[0].toLowerCase().startsWith('body')) parts.shift();
+          }
+
+          for (const part of parts) {
+             // part is like "div[2]" or "span" (implies [1])
+             const match = part.match(/^([a-z0-9-_]+)(?:[(d+)])?$/i);
+             if (!match) {
+               current = null;
+               break;
+             }
+             
+             const tagName = match[1].toUpperCase();
+             const index = match[2] ? parseInt(match[2], 10) : 1;
+             
+             // Find nth child with this tag
+             let count = 0;
+             let found = null;
+             const children = current.children; // .children only includes Elements (skips text), which matches XPath element indexing usually?
+             // Wait, XPath "div[2]" means 2nd child that IS a div.
+             // .children is all elements.
+             
+             for (let i = 0; i < children.length; i++) {
+               const child = children[i];
+               if (child.tagName === tagName) {
+                 count++;
+                 if (count === index) {
+                   found = child;
+                   break;
+                 }
+               }
+             }
+             
+             if (!found) {
+               current = null; 
+               break;
+             }
+             current = found;
+          }
+          
+          if (current) result = current;
+          
+        } catch(e) {
+          console.warn('Manual XPath traversal failed:', e);
+        }
+      }
+
+      return result;
+    }
+
+    // --- Helper: Get XPath for Element (Reverse) ---
+    function getXPathForElement(element) {
+      if (element.id !== '') return 'id("' + element.id + '")';
+      if (element === document.body) return element.tagName.toLowerCase();
+
+      let ix = 0;
+      const siblings = element.parentNode ? element.parentNode.childNodes : [];
+      
+      for (let i = 0; i < siblings.length; i++) {
+        const sibling = siblings[i];
+        if (sibling === element) {
+          return getXPathForElement(element.parentNode) + '/' + element.tagName.toLowerCase() + '[' + (ix + 1) + ']';
+        }
+        if (sibling.nodeType === 1 && sibling.tagName === element.tagName) {
+          ix++;
+        }
+      }
+    }
+
+    // --- Position-safe class helpers ---
+    // position:relative is only needed for "static" elements so that
+    // z-index and ::before labels work.  Fixed/sticky/absolute elements
+    // already support z-index, so overriding their position breaks layout
+    // (e.g. a fixed header collapses into normal flow and disappears).
+    var REPOSITION_ATTR = 'data-interactive-reposition';
+
+    function addInteractiveClass(el, cls) {
+      var needsReposition = window.getComputedStyle(el).position === 'static';
+      el.classList.add(cls);
+      if (needsReposition) {
+        el.setAttribute(REPOSITION_ATTR, '');
+      }
+    }
+
+    function removeInteractiveClass(el, cls) {
+      el.classList.remove(cls);
+      // Only remove reposition attr if no other interactive class remains
+      if (!el.classList.contains(HOVER_CLASS) &&
+          !el.classList.contains(SELECTED_CLASS) &&
+          !el.classList.contains(CONNECTED_CLASS)) {
+        el.removeAttribute(REPOSITION_ATTR);
+      }
+    }
+
+    // --- CSS Injection ---
+    function injectConnectStyles() {
+      if (document.getElementById(CONNECT_STYLE_ID)) return;
+
+      const css = `
+        /* Cursor change for the whole page */
+        body[data-mode="connect"] {
+          cursor: crosshair !important;
+        }
+
+        /* position:relative only for originally-static elements (via JS attr) */
+        [${REPOSITION_ATTR}] {
+          position: relative;
+        }
+
+        /* Connected State - Blue/Green (Persistent) */
+        .${CONNECTED_CLASS} {
+          outline: 2px dashed #4287f5 !important;
+          z-index: 9990; 
+        }
+
+        /* Hover State - Blurple */
+        .${HOVER_CLASS} {
+          outline: 2px solid #5E56E7 !important;
+          z-index: 9999;
+        }
+
+        /* Selected State - Same Blurple (Persistent) */
+        .${SELECTED_CLASS} {
+          outline: 2px solid #5E56E7 !important;
+          box-shadow: 0 0 0 2px #5E56E7 !important;
+          z-index: 10000;
+        }
+
+        /* Label Tag */
+        .${CONNECTED_CLASS}::before,
+        .${HOVER_CLASS}::before,
+        .${SELECTED_CLASS}::before {
+          content: attr(data-interactive-label);
+          position: absolute;
+          top: -24px;
+          left: -2px;
+          padding: 2px 8px;
+          font-size: 12px !important;
+          line-height: 1 !important;
+          height: auto !important;
+          display: block !important;
+          font-family: monospace !important;
+          font-weight: normal !important;
+          font-style: normal !important;
+          text-transform: none !important;
+          letter-spacing: normal !important;
+          border-radius: 4px 4px 0 0;
+          white-space: nowrap;
+          pointer-events: none;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          z-index: 10001;
+        }
+
+        /* Specific Colors for Labels */
+        .${CONNECTED_CLASS}::before {
+          background: #4287f5;
+          color: white;
+          content: "Connected"; 
+        }
+        
+        .${HOVER_CLASS}::before,
+        .${SELECTED_CLASS}::before {
+          background: #5E56E7;
+          color: white;
+        }
+      `;
+
+      const style = document.createElement('style');
+      style.id = CONNECT_STYLE_ID;
+      style.textContent = css;
+      document.head.appendChild(style);
+    }
+
+    function injectRunStyles() {
+      if (document.getElementById(RUN_STYLE_ID)) return;
+      const style = document.createElement('style');
+      style.id = RUN_STYLE_ID;
+      style.textContent = `
+        .${RUN_LINK_CLASS} { cursor: pointer !important; }
+        .${HOTSPOT_CLASS} {
+          outline: 2px dashed rgba(66, 135, 245, 0.7) !important;
+          outline-offset: 2px;
+          animation: hotspot-pulse 2s ease-in-out infinite;
+        }
+        @keyframes hotspot-pulse {
+          0%, 100% { outline-color: rgba(66, 135, 245, 0.5); }
+          50% { outline-color: rgba(66, 135, 245, 0.9); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // --- Core Logic: Connect Mode ---
+    function updateConnectMode() {
+      document.body.setAttribute('data-mode', 'connect');
+      injectConnectStyles();
+      highlightConnections();
+      
+      // Clear run mode artifacts
+      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el => el.classList.remove(RUN_LINK_CLASS));
+    }
+
+    function highlightConnections() {
+      // Clear existing
+      document.querySelectorAll('.' + CONNECTED_CLASS).forEach(el => {
+         removeInteractiveClass(el, CONNECTED_CLASS);
+         el.removeAttribute('data-interactive-label');
+      });
+
+      // Highlight based on current state links? 
+      // Or ALL links for this screen? Usually all links for this screen logic.
+      // But we receive potentially filtered links. 
+      // For now, let's use all links passed to us.
+      if (!links) {
+        return;
+      }
+
+      links.forEach(link => {
+        // Show all connections in Connect mode, regardless of state
+        // if (link.state !== '1') return;
+
+        try {
+           let safeXpath = link.xpath;
+           if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+             safeXpath = '//' + safeXpath;
+           }
+
+           const element = getElementByXPath(safeXpath);
+           if (element) {
+             addInteractiveClass(element, CONNECTED_CLASS);
+             element.setAttribute('data-interactive-label', 'Connected');
+           }
+        } catch (e) {}
+      });
+    }
+    
+    function handleConnectHover(e) {
+      if (mode !== 'connect') return;
+      // Don't show hover borders when interactions are paused or element is selected
+      if (!interactive || selectedElement) return;
+      
+      // Cleanup previous hover
+      document.querySelectorAll('.' + HOVER_CLASS).forEach(el => {
+         removeInteractiveClass(el, HOVER_CLASS);
+         el.removeAttribute('data-interactive-label');
+      });
+
+      const target = e.target;
+      if (target === document.body || target === document.documentElement) return;
+
+      // Skip page-level wrappers — they create stacking contexts that
+      // cover fixed/sticky headers and footers.
+      var SKIP_HOVER = { MAIN:1, BODY:1, HTML:1 };
+      if (SKIP_HOVER[target.tagName]) return;
+
+      // Don't hover if selected
+      if (target.classList.contains(SELECTED_CLASS)) return;
+
+      addInteractiveClass(target, HOVER_CLASS);
+      
+      // Determine label
+      let label = 'Select';
+      if (target.classList.contains(CONNECTED_CLASS)) label = 'Connected';
+      
+      target.setAttribute('data-interactive-label', label);
+    }
+
+    function handleConnectClick(e) {
+      if (mode !== 'connect') return;
+
+      // Don't intercept clicks originating from contentEditable elements.
+      // When editing text in a <button> or <a>, pressing Space fires a
+      // synthetic click; we must still preventDefault() to block form
+      // submission / navigation, but skip the selection logic so the
+      // space character is inserted normally.
+      const target = e.target;
+      if (target && (target.isContentEditable || target.closest?.('[contenteditable]'))) {
+        e.preventDefault();
+        return;
+      }
+
+      e.preventDefault();
+      e.stopPropagation();
+      if (!interactive) return;
+
+      // If an element is already selected, deselect it (click anywhere to dismiss)
+      if (selectedElement) {
+        removeInteractiveClass(selectedElement, SELECTED_CLASS);
+        selectedElement.removeAttribute('data-interactive-label');
+        selectedElement = null;
+        window.parent.postMessage({ type: 'elementDeselected' }, '*');
+        return;
+      }
+
+      // target is already declared above
+      
+      // Toggle selection
+      if (target.classList.contains(SELECTED_CLASS)) {
+        // Deselect
+        removeInteractiveClass(target, SELECTED_CLASS);
+        target.removeAttribute('data-interactive-label');
+        selectedElement = null;
+        
+        window.parent.postMessage({
+          type: 'elementDeselected' 
+        }, '*');
+
+        // Re-apply hover if mouse is still there?
+      } else {
+        // Clear previous selection
+        if (selectedElement) {
+           removeInteractiveClass(selectedElement, SELECTED_CLASS);
+           selectedElement.removeAttribute('data-interactive-label');
+        }
+
+        // Skip page-level container wrappers — clicking on padding of a
+        // <main> or <body> selects the container which produces a useless
+        // overlay. We intentionally keep HEADER, FOOTER, NAV, SECTION
+        // etc. selectable since users may want to edit them directly.
+        var SKIP_TAGS = { MAIN:1, BODY:1, HTML:1 };
+        if (SKIP_TAGS[target.tagName] && target.children.length > 0) {
+          selectedElement = null;
+          return;
+        }
+        
+        selectedElement = target;
+        addInteractiveClass(selectedElement, SELECTED_CLASS);
+        selectedElement.setAttribute('data-interactive-label', 'Selected');
+        
+        // Remove hover class to avoid double border
+        removeInteractiveClass(selectedElement, HOVER_CLASS);
+
+        // Send to parent
+        const xpath = getXPathForElement(selectedElement);
+        const rect = selectedElement.getBoundingClientRect();
+
+        // Check if clicked element matches any stored link (resolve stored xpaths to compare DOM nodes)
+        let storedXpath = null;
+        if (links && links.length > 0) {
+          for (const link of links) {
+            try {
+              let safeXpath = link.xpath;
+              if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+                safeXpath = '//' + safeXpath;
+              }
+              const el = getElementByXPath(safeXpath);
+              if (el === selectedElement) {
+                storedXpath = link.xpath;
+                break;
+              }
+            } catch (err) {}
+          }
+        }
+
+        window.parent.postMessage({
+          type: 'elementClicked',
+          payload: { 
+            xpath: storedXpath || xpath,
+            tagName: selectedElement.tagName,
+            text: (selectedElement.textContent || '').substring(0, 100),
+            attributes: Array.from(selectedElement.attributes).map(a => a.name + '="' + a.value + '"').join(' '),
+            outerHTML: (selectedElement.outerHTML || '').substring(0, 500),
+            hasBackgroundImage: !!(selectedElement.style && selectedElement.style.backgroundImage && selectedElement.style.backgroundImage.includes('url(')),
+            rect: {
+              x: rect.x,
+              y: rect.y,
+              width: rect.width,
+              height: rect.height,
+              top: rect.top,
+              right: rect.right,
+              bottom: rect.bottom,
+              left: rect.left
+            }
+          }
+        }, '*');
+      }
+    }
+
+    // --- Core Logic: Run Mode ---
+    function updateRunMode() {
+      document.body.removeAttribute('data-mode');
+      injectRunStyles();
+      addRunInteractivity();
+      
+      // Clear connect mode artifacts
+      document.querySelectorAll('.' + HOVER_CLASS).forEach(el => {
+          removeInteractiveClass(el, HOVER_CLASS);
+          el.removeAttribute('data-interactive-label');
+      });
+       document.querySelectorAll('.' + SELECTED_CLASS).forEach(el => {
+          removeInteractiveClass(el, SELECTED_CLASS);
+          el.removeAttribute('data-interactive-label');
+      });
+      document.querySelectorAll('.' + CONNECTED_CLASS).forEach(el => {
+          removeInteractiveClass(el, CONNECTED_CLASS);
+          el.removeAttribute('data-interactive-label');
+      });
+    }
+
+    // Timer handle for pending hotspot scans — ensures only one scan is active
+    var _hotspotTimer = null;
+
+    function addRunInteractivity(retryCount) {
+      if (!links) return;
+      retryCount = retryCount || 0;
+
+      // Cancel any pending retry to prevent overlapping scans
+      if (_hotspotTimer) {
+        clearTimeout(_hotspotTimer);
+        _hotspotTimer = null;
+      }
+      
+      // 1. Clear existing
+      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el => {
+        el.classList.remove(RUN_LINK_CLASS);
+        el.classList.remove(HOTSPOT_CLASS);
+      });
+
+      // 2. Add highlights
+      var foundCount = 0;
+      for (const link of links) {
+        const isExact = (link.state === currentState);
+        const isDefault = (link.state === '1');
+        if (!isExact && !isDefault) continue;
+
+        try {
+          let safeXpath = link.xpath;
+          if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+            safeXpath = '//' + safeXpath;
+          }
+          const el = getElementByXPath(safeXpath);
+          if (el) {
+            el.classList.add(RUN_LINK_CLASS);
+            if (hotspotsVisible) el.classList.add(HOTSPOT_CLASS);
+            foundCount++;
+          }
+        } catch (err) {}
+      }
+
+
+
+      // Retry with increasing delays if we have links but couldn't find elements
+      if (links.length > 0 && foundCount === 0 && retryCount < 5) {
+        var delays = [100, 200, 400, 600, 1000];
+        _hotspotTimer = setTimeout(function() {
+          _hotspotTimer = null;
+          addRunInteractivity(retryCount + 1);
+        }, delays[retryCount]);
+      }
+    }
+
+    function toggleHotspots(show) {
+      hotspotsVisible = show;
+      document.querySelectorAll('.' + RUN_LINK_CLASS).forEach(el => {
+        if (show) el.classList.add(HOTSPOT_CLASS);
+        else el.classList.remove(HOTSPOT_CLASS);
+      });
+    }
+
+    function handleRunClick(e) {
+      if (mode !== 'run') return;
+      
+      // Prevent default navigation for all links
+      const anchor = e.target.closest('a');
+      if (anchor) {
+        e.preventDefault();
+      }
+
+      if (!links || links.length === 0) return;
+
+      let bestLink = null;
+      let bestPriority = 0;
+
+      for (const link of links) {
+        const isExact = (link.state === currentState);
+        const isDefault = (link.state === '1');
+        if (!isExact && !isDefault) continue;
+
+        try {
+          let safeXpath = link.xpath;
+          if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+            safeXpath = '//' + safeXpath;
+          }
+          const el = getElementByXPath(safeXpath);
+          
+          if (el && (el === e.target || el.contains(e.target))) {
+            const priority = isExact ? 2 : 1;
+            if (priority > bestPriority) {
+              bestLink = link;
+              bestPriority = priority;
+            }
+          }
+        } catch (err) {
+            console.error('Error checking link:', link, err);
+        }
+      }
+
+      if (bestLink) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.parent.postMessage({
+          type: 'navigate',
+          payload: {
+            targetScreenId: bestLink.targetScreenId,
+            transition: bestLink.transition
+          }
+        }, '*');
+      }
+    }
+
+    // --- Main Event Dispatcher ---
+    function onMouseOver(e) {
+      if (mode === 'connect') handleConnectHover(e);
+    }
+
+    function onClick(e) {
+      // Notify parent of any click inside the iframe (used to dismiss
+      // the welcome message — iframe clicks don't bubble to parent DOM)
+      window.parent.postMessage({ type: 'iframeClicked' }, '*');
+      if (mode === 'connect') handleConnectClick(e);
+      else if (mode === 'run') handleRunClick(e);
+    }
+
+    function onDblClick(e) {
+      if (mode !== 'connect' || !interactive) return;
+
+      var target = e.target;
+      if (!target || target === document.body || target === document.documentElement) return;
+
+      // Only trigger for text-editable elements
+      if (!TEXT_EDITABLE_TAGS[target.tagName]) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      var xpath = getXPathForElement(target);
+
+      // Check if clicked element matches a stored link xpath
+      var storedXpath = null;
+      if (links && links.length > 0) {
+        for (var i = 0; i < links.length; i++) {
+          try {
+            var safeXpath = links[i].xpath;
+            if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+              safeXpath = '//' + safeXpath;
+            }
+            if (getElementByXPath(safeXpath) === target) {
+              storedXpath = links[i].xpath;
+              break;
+            }
+          } catch (err) {}
+        }
+      }
+
+      // Tell parent to go directly into text edit mode
+      window.parent.postMessage({
+        type: 'textEditRequested',
+        payload: { xpath: storedXpath || xpath }
+      }, '*');
+    }
+
+    // --- HTML Serialization (used by text edit and image replace) ---
+    function getEditedHtml() {
+      const clone = document.documentElement.cloneNode(true);
+
+      // 1. Remove contenteditable attributes
+      clone.querySelectorAll('[contenteditable]').forEach(function(e) {
+        e.removeAttribute('contenteditable');
+        e.removeAttribute('spellcheck');
+      });
+
+      // 2. Remove injected script/style elements
+      clone.querySelectorAll('script[data-stitch-injected]').forEach(function(e) {
+        e.remove();
+      });
+      clone.querySelectorAll('style[data-stitch-injected]').forEach(function(e) {
+        e.remove();
+      });
+      // Remove prototype edit/run mode style tags by ID
+      var modeStyle = clone.querySelector('#interactive-mode-styles');
+      if (modeStyle) modeStyle.remove();
+      var runStyle = clone.querySelector('#prototype-run-styles');
+      if (runStyle) runStyle.remove();
+
+      // 3. Remove prototype interactive classes and attributes
+      var protoClasses = ['interactive-selected', 'interactive-connected',
+        'interactive-hover', 'interactive-active', 'prototype-hotspot'];
+      protoClasses.forEach(function(cls) {
+        clone.querySelectorAll('.' + cls).forEach(function(e) {
+          e.classList.remove(cls);
+        });
+      });
+      // Also strip from body
+      clone.querySelector('body')?.classList.remove('interactive-active');
+      // Remove data-interactive-label and data-interactive-reposition attributes
+      clone.querySelectorAll('[data-interactive-label]').forEach(function(e) {
+        e.removeAttribute('data-interactive-label');
+      });
+      clone.querySelectorAll('[' + REPOSITION_ATTR + ']').forEach(function(e) {
+        e.removeAttribute(REPOSITION_ATTR);
+      });
+
+      // 4. Remove editing highlight inline styles
+      clone.querySelectorAll('[style]').forEach(function(e) {
+        e.style.outline = '';
+        e.style.outlineOffset = '';
+        e.style.cursor = '';
+        if (!e.getAttribute('style')?.trim()) {
+          e.removeAttribute('style');
+        }
+      });
+
+      return '<!DOCTYPE html>' + clone.outerHTML;
+    }
+
+    // --- Message Listener ---
+    function handleMessage(event) {
+      if (!event.data || typeof event.data !== 'object') return;
+      const { type, payload } = event.data;
+      
+      if (type === 'setMode') {
+        const newMode = payload.mode; // 'run' or 'connect' (mapped from 'edit' -> 'connect')
+        if (newMode && newMode !== mode) {
+          mode = newMode;
+          if (mode === 'connect') updateConnectMode();
+          else updateRunMode();
+        }
+      } else if (type === 'setState') {
+        const newStateId = payload?.stateId;
+        if (newStateId && newStateId !== currentState) {
+          currentState = newStateId;
+          if (mode === 'run') updateRunMode();
+        }
+      } else if (type === 'updateLinks') {
+         // Debounce link updates to prevent rapid broadcasts from
+         // clearing and re-scanning hotspots repeatedly
+         links = payload.links || [];
+         if (window.__updateLinksTimer) clearTimeout(window.__updateLinksTimer);
+         window.__updateLinksTimer = setTimeout(function() {
+           window.__updateLinksTimer = null;
+           if (mode === 'run') updateRunMode();
+           else updateConnectMode();
+         }, 50);
+      } else if (type === 'showHotspots') {
+         toggleHotspots(!!payload?.show);
+      } else if (type === 'clearSelection') {
+         if (selectedElement) {
+            removeInteractiveClass(selectedElement, SELECTED_CLASS);
+            selectedElement.removeAttribute('data-interactive-label');
+            selectedElement = null;
+         }
+      } else if (type === 'enableTextEdit') {
+         // --- Direct text editing ---
+         const xpath = payload?.xpath;
+         if (!xpath) return;
+         let safeXpath = xpath;
+         if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+           safeXpath = '//' + safeXpath;
+         }
+         const el = getElementByXPath(safeXpath);
+         if (!el || !(el instanceof HTMLElement)) return;
+
+         // Track the element being edited
+         let textEditElement = el;
+
+         // Make editable
+         textEditElement.setAttribute('contenteditable', 'true');
+         textEditElement.setAttribute('spellcheck', 'false');
+         textEditElement.style.outline = '2px solid #4287f5';
+         textEditElement.style.outlineOffset = '2px';
+         textEditElement.style.cursor = 'text';
+         textEditElement.focus();
+
+         // Select all text so user can start typing immediately
+         const range = document.createRange();
+         range.selectNodeContents(textEditElement);
+         const sel = window.getSelection();
+         if (sel) {
+           sel.removeAllRanges();
+           sel.addRange(range);
+         }
+
+         // getEditedHtml is defined at the outer scope
+
+         // Debounce text extraction to avoid O(N) DOM cloning on every keystroke
+         let textEditTimeout;
+         function sendHtml() {
+           window.parent.postMessage({
+             type: 'textChanged',
+             payload: { html: getEditedHtml() }
+           }, '*');
+         }
+         function onTextInput() {
+           clearTimeout(textEditTimeout);
+           textEditTimeout = setTimeout(sendHtml, 300);
+         }
+
+         // Cleanup on blur
+         function onTextBlur() {
+           // Flush any pending debounced update and send final text
+           clearTimeout(textEditTimeout);
+           sendHtml();
+
+           // Cleanup
+           textEditElement.removeAttribute('contenteditable');
+           textEditElement.removeAttribute('spellcheck');
+           textEditElement.style.outline = '';
+           textEditElement.style.outlineOffset = '';
+           textEditElement.style.cursor = '';
+           textEditElement.removeEventListener('input', onTextInput);
+           textEditElement.removeEventListener('blur', onTextBlur);
+
+           // Notify parent that text editing ended
+           window.parent.postMessage({
+             type: 'textEditEnded'
+           }, '*');
+         }
+
+         textEditElement.addEventListener('input', onTextInput);
+         textEditElement.addEventListener('blur', onTextBlur);
+
+         // Store cleanup for disableTextEdit message
+         window.__stitchTextEditCleanup = function() {
+           textEditElement.removeAttribute('contenteditable');
+           textEditElement.removeAttribute('spellcheck');
+           textEditElement.style.outline = '';
+           textEditElement.style.outlineOffset = '';
+           textEditElement.style.cursor = '';
+           textEditElement.removeEventListener('input', onTextInput);
+           textEditElement.removeEventListener('blur', onTextBlur);
+           textEditElement.blur();
+         };
+      } else if (type === 'disableTextEdit') {
+         if (window.__stitchTextEditCleanup) {
+           window.__stitchTextEditCleanup();
+           window.__stitchTextEditCleanup = null;
+         }
+      } else if (type === 'replaceImage') {
+         // --- Image replacement ---
+         const xpath = payload?.xpath;
+         const newSrc = payload?.src;
+         if (!xpath || !newSrc) return;
+         let safeXpath = xpath;
+         if (!safeXpath.startsWith('/') && !safeXpath.startsWith('id(')) {
+           safeXpath = '//' + safeXpath;
+         }
+         const imgEl = getElementByXPath(safeXpath);
+         if (!imgEl || !(imgEl instanceof HTMLElement)) return;
+
+         // Swap image source
+         const tag = imgEl.tagName.toLowerCase();
+         if (tag === 'img') {
+           imgEl.setAttribute('src', newSrc);
+         } else {
+           // Background image element
+           imgEl.style.backgroundImage = 'url("' + newSrc + '")';
+         }
+
+         // Send updated HTML to parent for persistence
+         window.parent.postMessage({
+           type: 'textChanged',
+           payload: { html: getEditedHtml() }
+         }, '*');
+      } else if (type === 'setInteractive') {
+         interactive = !!payload?.interactive;
+         if (!interactive) {
+           // Clear hovers when disabling
+           document.querySelectorAll('.' + HOVER_CLASS).forEach(el => {
+             removeInteractiveClass(el, HOVER_CLASS);
+             el.removeAttribute('data-interactive-label');
+           });
+         }
+       }
+    }
+
+    window.addEventListener('message', handleMessage);
+
+    // --- Initialization ---
+    document.addEventListener('mouseover', onMouseOver, true);
+    document.addEventListener('click', onClick, true); // Capture phase to prevent default
+    document.addEventListener('dblclick', onDblClick, true);
+
+    // Esc key to deselect in connect mode + space key fix for contentEditable buttons
+    function onKeyDown(e) {
+      // Fix: <button> and <a> elements have a native activation behavior on
+      // Space (fires a click). When contentEditable is active on such elements,
+      // the browser prioritises activation over text insertion. Prevent the
+      // native activation and manually insert the space character instead.
+      if (e.key === ' ' && !e.repeat) {
+        const t = e.target;
+        if (t && t.isContentEditable) {
+          e.preventDefault();
+          document.execCommand('insertText', false, ' ');
+          return;
+        }
+      }
+
+      if (e.key === 'Escape' && mode === 'connect' && selectedElement) {
+        removeInteractiveClass(selectedElement, SELECTED_CLASS);
+        selectedElement.removeAttribute('data-interactive-label');
+        selectedElement = null;
+        window.parent.postMessage({ type: 'elementDeselected' }, '*');
+      }
+    }
+    document.addEventListener('keydown', onKeyDown, true);
+
+    // Clear hover borders when mouse leaves the iframe entirely
+    function onMouseLeave() {
+      document.querySelectorAll('.' + HOVER_CLASS).forEach(el => {
+        removeInteractiveClass(el, HOVER_CLASS);
+        el.removeAttribute('data-interactive-label');
+      });
+    }
+    document.addEventListener('mouseleave', onMouseLeave);
+
+    // Cleanup function
+    window.__PROTOTYPE_V2_CLEANUP__ = function() {
+      document.removeEventListener('mouseover', onMouseOver, true);
+      document.removeEventListener('click', onClick, true);
+      document.removeEventListener('dblclick', onDblClick, true);
+      document.removeEventListener('keydown', onKeyDown, true);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      window.removeEventListener('message', handleMessage);
+      // Remove styles
+      const connectStyle = document.getElementById(CONNECT_STYLE_ID);
+      if (connectStyle) connectStyle.remove();
+      const runStyle = document.getElementById(RUN_STYLE_ID);
+      if (runStyle) runStyle.remove();
+    };
+
+    // Start in default mode
+    function init() {
+      if (!document.body) {
+        // Should not happen if script is at end of body, but just in case
+        console.warn('PrototypeV2: document.body not ready during init');
+        return;
+      }
+      if (mode === 'run') updateRunMode();
+      else updateConnectMode();
+
+      // Notify parent that script is ready to receive messages (links, mode, state)
+      window.parent.postMessage({ type: 'iframe_heartbeat' }, '*');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+  })();
+
+    </script><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-4{bottom:-1rem}.-right-4{right:-1rem}.bottom-0{bottom:0px}.left-0{left:0px}.top-0{top:0px}.z-50{z-index:50}.mx-2{margin-left:0.5rem;margin-right:0.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-lg{margin-bottom:24px}.ml-8{margin-left:2rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-24{height:6rem}.h-3{height:0.75rem}.h-32{height:8rem}.h-40{height:10rem}.h-8{height:2rem}.h-\[100\%\]{height:100%}.h-\[15\%\]{height:15%}.h-\[20\%\]{height:20%}.h-\[200px\]{height:200px}.h-\[30\%\]{height:30%}.h-\[45\%\]{height:45%}.h-\[60\%\]{height:60%}.h-\[80\%\]{height:80%}.h-\[90\%\]{height:90%}.h-full{height:100%}.min-h-\[320px\]{min-height:320px}.min-h-\[884px\]{min-height:884px}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-40{width:10rem}.w-64{width:16rem}.w-8{width:2rem}.w-full{width:100%}.max-w-container-max{max-width:1280px}.flex-1{flex:1 1 0%}.flex-grow{flex-grow:1}.border-collapse{border-collapse:collapse}.translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-md{gap:16px}.gap-sm{gap:12px}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-outline-variant > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(197 198 210 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-t-sm{border-top-left-radius:0.125rem;border-top-right-radius:0.125rem}.border{border-width:1px}.border-\[16px\]{border-width:16px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-error-container{--tw-border-opacity:1;border-color:rgb(255 218 214 / var(--tw-border-opacity, 1))}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(197 198 210 / var(--tw-border-opacity, 1))}.border-surface-container{--tw-border-opacity:1;border-color:rgb(239 237 243 / var(--tw-border-opacity, 1))}.bg-\[\#28a745\]{--tw-bg-opacity:1;background-color:rgb(40 167 69 / var(--tw-bg-opacity, 1))}.bg-\[\#F4F7FA\]{--tw-bg-opacity:1;background-color:rgb(244 247 250 / var(--tw-bg-opacity, 1))}.bg-\[\#d4edda\]{--tw-bg-opacity:1;background-color:rgb(212 237 218 / var(--tw-bg-opacity, 1))}.bg-\[\#ffc107\]{--tw-bg-opacity:1;background-color:rgb(255 193 7 / var(--tw-bg-opacity, 1))}.bg-\[\#fff3cd\]{--tw-bg-opacity:1;background-color:rgb(255 243 205 / var(--tw-bg-opacity, 1))}.bg-error{--tw-bg-opacity:1;background-color:rgb(186 26 26 / var(--tw-bg-opacity, 1))}.bg-error-container{--tw-bg-opacity:1;background-color:rgb(255 218 214 / var(--tw-bg-opacity, 1))}.bg-on-error{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-on-primary-container{--tw-bg-opacity:1;background-color:rgb(117 141 213 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(0 17 58 / var(--tw-bg-opacity, 1))}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(0 35 102 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(219 225 255 / var(--tw-bg-opacity, 1))}.bg-secondary-fixed{--tw-bg-opacity:1;background-color:rgb(224 227 230 / var(--tw-bg-opacity, 1))}.bg-surface-bright{--tw-bg-opacity:1;background-color:rgb(250 248 255 / var(--tw-bg-opacity, 1))}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(239 237 243 / var(--tw-bg-opacity, 1))}.bg-surface-container-highest{--tw-bg-opacity:1;background-color:rgb(227 226 232 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-surface-variant{--tw-bg-opacity:1;background-color:rgb(227 226 232 / var(--tw-bg-opacity, 1))}.bg-tertiary-fixed{--tw-bg-opacity:1;background-color:rgb(212 228 246 / var(--tw-bg-opacity, 1))}.p-2{padding:0.5rem}.p-4{padding:1rem}.p-lg{padding:24px}.p-md{padding:16px}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-md{padding-left:16px;padding-right:16px}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-lg{padding-top:24px;padding-bottom:24px}.pb-2{padding-bottom:0.5rem}.pb-8{padding-bottom:2rem}.text-left{text-align:left}.text-right{text-align:right}.font-body-md{font-family:Inter}.font-display-lg{font-family:Hanken Grotesk}.font-headline-lg{font-family:Hanken Grotesk}.font-headline-md{font-family:Hanken Grotesk}.font-label-bold{font-family:Inter}.font-label-md{font-family:Inter}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-\[14px\]{font-size:14px}.text-\[18px\]{font-size:18px}.text-\[20px\]{font-size:20px}.text-body-md{font-size:14px;line-height:20px;font-weight:400}.text-display-lg{font-size:36px;line-height:44px;letter-spacing:-0.02em;font-weight:700}.text-headline-lg{font-size:28px;line-height:36px;letter-spacing:-0.01em;font-weight:600}.text-headline-md{font-size:20px;line-height:28px;font-weight:600}.text-label-bold{font-size:12px;line-height:16px;letter-spacing:0.05em;font-weight:700}.text-label-md{font-size:12px;line-height:16px;font-weight:500}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-\[\#155724\]{--tw-text-opacity:1;color:rgb(21 87 36 / var(--tw-text-opacity, 1))}.text-\[\#856404\]{--tw-text-opacity:1;color:rgb(133 100 4 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.text-on-background{--tw-text-opacity:1;color:rgb(26 27 32 / var(--tw-text-opacity, 1))}.text-on-error-container{--tw-text-opacity:1;color:rgb(147 0 10 / var(--tw-text-opacity, 1))}.text-on-primary{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-on-primary-container{--tw-text-opacity:1;color:rgb(117 141 213 / var(--tw-text-opacity, 1))}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(0 23 74 / var(--tw-text-opacity, 1))}.text-on-secondary-fixed{--tw-text-opacity:1;color:rgb(24 28 30 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(68 70 80 / var(--tw-text-opacity, 1))}.text-on-tertiary-fixed{--tw-text-opacity:1;color:rgb(13 29 42 / var(--tw-text-opacity, 1))}.text-outline-variant{--tw-text-opacity:1;color:rgb(197 198 210 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(0 17 58 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-20{opacity:0.2}.shadow-\[0_4px_12px_rgba\(0\2c 0\2c 0\2c 0\.02\)\]{--tw-shadow:0 4px 12px rgba(0,0,0,0.02);--tw-shadow-colored:0 4px 12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-xl{--tw-blur:blur(24px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-500{transition-duration:500ms}.hover\:bg-on-primary-fixed-variant:hover{--tw-bg-opacity:1;background-color:rgb(42 67 134 / var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(0 17 58 / var(--tw-bg-opacity, 1))}.hover\:bg-secondary-container:hover{--tw-bg-opacity:1;background-color:rgb(221 224 227 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(233 231 238 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-container-highest:hover{--tw-bg-opacity:1;background-color:rgb(227 226 232 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-container-low:hover{--tw-bg-opacity:1;background-color:rgb(244 243 249 / var(--tw-bg-opacity, 1))}.hover\:text-on-primary-container:hover{--tw-text-opacity:1;color:rgb(117 141 213 / var(--tw-text-opacity, 1))}.hover\:text-on-surface:hover{--tw-text-opacity:1;color:rgb(26 27 32 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:opacity-100:focus{opacity:1}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(0 17 58 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:opacity-100{opacity:1}.dark\:bg-surface-container-lowest:is(.dark *){--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.dark\:text-inverse-primary:is(.dark *){--tw-text-opacity:1;color:rgb(179 197 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:ml-64{margin-left:16rem}.md\:flex{display:flex}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:p-lg{padding:24px}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:p-xl{padding:32px}}</style><style id="prototype-run-styles">
+        .prototype-link-hover { cursor: pointer !important; }
+        .prototype-hotspot {
+          outline: 2px dashed rgba(66, 135, 245, 0.7) !important;
+          outline-offset: 2px;
+          animation: hotspot-pulse 2s ease-in-out infinite;
+        }
+        @keyframes hotspot-pulse {
+          0%, 100% { outline-color: rgba(66, 135, 245, 0.5); }
+          50% { outline-color: rgba(66, 135, 245, 0.9); }
+        }
+      </style><style id="interactive-mode-styles">
+        /* Cursor change for the whole page */
+        body[data-mode="connect"] {
+          cursor: crosshair !important;
+        }
+
+        /* position:relative only for originally-static elements (via JS attr) */
+        [data-interactive-reposition] {
+          position: relative;
+        }
+
+        /* Connected State - Blue/Green (Persistent) */
+        .interactive-connected {
+          outline: 2px dashed #4287f5 !important;
+          z-index: 9990; 
+        }
+
+        /* Hover State - Blurple */
+        .interactive-hover {
+          outline: 2px solid #5E56E7 !important;
+          z-index: 9999;
+        }
+
+        /* Selected State - Same Blurple (Persistent) */
+        .interactive-selected {
+          outline: 2px solid #5E56E7 !important;
+          box-shadow: 0 0 0 2px #5E56E7 !important;
+          z-index: 10000;
+        }
+
+        /* Label Tag */
+        .interactive-connected::before,
+        .interactive-hover::before,
+        .interactive-selected::before {
+          content: attr(data-interactive-label);
+          position: absolute;
+          top: -24px;
+          left: -2px;
+          padding: 2px 8px;
+          font-size: 12px !important;
+          line-height: 1 !important;
+          height: auto !important;
+          display: block !important;
+          font-family: monospace !important;
+          font-weight: normal !important;
+          font-style: normal !important;
+          text-transform: none !important;
+          letter-spacing: normal !important;
+          border-radius: 4px 4px 0 0;
+          white-space: nowrap;
+          pointer-events: none;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          z-index: 10001;
+        }
+
+        /* Specific Colors for Labels */
+        .interactive-connected::before {
+          background: #4287f5;
+          color: white;
+          content: "Connected"; 
+        }
+        
+        .interactive-hover::before,
+        .interactive-selected::before {
+          background: #5E56E7;
+          color: white;
+        }
+      </style></head>
+<body class="bg-[#F4F7FA] text-on-background font-body-md min-h-[884px] flex" data-stitch-vh="min-h-[884px]===min-h-screen" data-mode="connect">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 border-r border-outline-variant py-lg bg-surface-container dark:bg-surface-container-lowest z-50">
+<div class="px-md mb-8 flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-lg">U</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">Admin Portal</h1>
+<p class="text-label-md font-label-md text-on-surface-variant">Campus Canteen HQ</p>
+</div>
+</div>
+<ul class="flex flex-col gap-2 flex-grow">
+<!-- Active Tab: Dashboard -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 transition-all duration-200 translate-x-1" href="https://app-companion-430619.appspot.com/projects/11565682034286298320?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gSqfLc8WnvU.O%2Fd%3D1%2Frs%3DAHpOoo_cXXGArE2dtw6vkGR2NQ_1f5L3AQ%2Fm%3D__features__#">
+<span class="material-symbols-outlined" style="font-variation-settings: &#39;FILL&#39; 1;">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all prototype-hotspot interactive-connected" href="https://app-companion-430619.appspot.com/projects/11565682034286298320?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gSqfLc8WnvU.O%2Fd%3D1%2Frs%3DAHpOoo_cXXGArE2dtw6vkGR2NQ_1f5L3AQ%2Fm%3D__features__#" data-interactive-reposition="">
+<span class="material-symbols-outlined">list_alt</span>
+<span class="text-label-md font-label-md">Orders</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all prototype-hotspot interactive-connected" href="https://app-companion-430619.appspot.com/projects/11565682034286298320?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gSqfLc8WnvU.O%2Fd%3D1%2Frs%3DAHpOoo_cXXGArE2dtw6vkGR2NQ_1f5L3AQ%2Fm%3D__features__#" data-interactive-reposition="">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-md font-label-md">Inventory</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="https://app-companion-430619.appspot.com/projects/11565682034286298320?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gSqfLc8WnvU.O%2Fd%3D1%2Frs%3DAHpOoo_cXXGArE2dtw6vkGR2NQ_1f5L3AQ%2Fm%3D__features__#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all prototype-hotspot interactive-connected" href="https://app-companion-430619.appspot.com/projects/11565682034286298320?usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gSqfLc8WnvU.O%2Fd%3D1%2Frs%3DAHpOoo_cXXGArE2dtw6vkGR2NQ_1f5L3AQ%2Fm%3D__features__#" data-interactive-reposition="" data-interactive-label="Connected">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="text-label-md font-label-md">QR Scanner</span>
+</a>
+</li>
+</ul>
+<div class="px-md mt-auto">
+<button class="w-full bg-surface-container-highest text-primary font-label-md text-label-md py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined">download</span>
+                Export Reports
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-4 md:p-lg lg:p-xl max-w-container-max mx-auto w-full">
+<!-- Header & Quick Actions -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-lg">
+<div class="">
+<h2 class="text-headline-lg font-headline-lg text-on-background">Dashboard Overview</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Real-time canteen performance metrics.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-primary text-on-primary px-4 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-on-primary-fixed-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Add New Food Item
+                </button>
+</div>
+</header>
+<!-- Top Stats Row (Bento Grid Style) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md mb-lg">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wide">Today's Sales</p>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+</div>
+<div class="mt-auto">
+<h3 class="text-display-lg font-display-lg text-on-background">$1,240</h3>
+<p class="text-label-md font-label-md text-emerald-600 flex items-center mt-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% from yesterday
+                    </p>
+</div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-fixed opacity-20 rounded-full blur-xl group-hover:bg-primary transition-all duration-500"></div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wide">Active Orders</p>
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+</div>
+<div class="mt-auto">
+<h3 class="text-display-lg font-display-lg text-on-background">24</h3>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">8 preparing, 16 pending</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<p class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wide">Total Tokens</p>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">confirmation_number</span>
+</div>
+</div>
+<div class="mt-auto">
+<h3 class="text-display-lg font-display-lg text-on-background">156</h3>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">Issued today</p>
+</div>
+</div>
+<!-- Stat Card 4 (Alert Style) -->
+<div class="bg-error-container p-md rounded-xl border border-error-container shadow-[0_4px_12px_rgba(0,0,0,0.02)] flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<p class="text-label-md font-label-md text-on-error-container uppercase tracking-wide">Out of Stock</p>
+<div class="w-8 h-8 rounded-full bg-on-error flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div class="mt-auto">
+<h3 class="text-display-lg font-display-lg text-on-error-container">3</h3>
+<p class="text-label-md font-label-md text-on-error-container mt-1 font-medium hover:underline cursor-pointer">View Items →</p>
+</div>
+</div>
+</div>
+<!-- Charts Section (Asymmetric Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md mb-lg">
+<!-- Line Chart (Wider) -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] min-h-[320px] flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-headline-md font-headline-md text-on-background">Peak Hour Statistics</h3>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+<span class="text-label-md font-label-md text-on-surface-variant">Order Volume (8 AM - 4 PM)</span>
+</div>
+</div>
+<!-- CSS Placeholder for Chart -->
+<div class="flex-grow flex items-end justify-between gap-2 relative">
+<!-- Y-Axis Labels -->
+<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-label-md text-outline-variant h-full pb-8">
+<span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+</div>
+<!-- Chart Bars/Points (Simulated via CSS) -->
+<div class="ml-8 flex-grow flex items-end justify-between h-[200px] border-b border-outline-variant pb-2">
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[20%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[45%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[80%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary rounded-t-sm h-[100%]"></div> <!-- Peak -->
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[90%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[60%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[30%] hover:bg-primary transition-all"></div>
+<div class="w-8 bg-primary-fixed rounded-t-sm h-[15%] hover:bg-primary transition-all"></div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between ml-8 mt-2 text-label-md text-outline-variant">
+<span>8 AM</span><span>9 AM</span><span>10 AM</span><span>12 PM</span><span>1 PM</span><span>2 PM</span><span>3 PM</span><span>4 PM</span>
+</div>
+</div>
+<!-- Pie Chart (Narrower) -->
+<div class="lg:col-span-1 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] min-h-[320px] flex flex-col">
+<h3 class="text-headline-md font-headline-md text-on-background mb-6">Dept Analytics</h3>
+<!-- Simulated Donut Chart -->
+<div class="flex-grow flex items-center justify-center relative">
+<div class="w-40 h-40 rounded-full border-[16px] border-surface-container relative" style="border-top-color: #002366; border-right-color: #758dd5; border-bottom-color: #dbe1ff; border-left-color: #002366; transform: rotate(45deg);"></div>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-display-lg font-display-lg text-primary">45%</span>
+<span class="text-label-md text-on-surface-variant">Main Canteen</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary-container"></span><span class="text-label-md">Main Canteen</span></div>
+<span class="text-label-bold font-label-bold">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-on-primary-container"></span><span class="text-label-md">Cafe Block B</span></div>
+<span class="text-label-bold font-label-bold">30%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary-fixed"></span><span class="text-label-md">Juice Bar</span></div>
+<span class="text-label-bold font-label-bold">25%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Orders Table Section -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] overflow-hidden">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h3 class="text-headline-md font-headline-md text-on-background">Recent Orders</h3>
+<button class="text-primary text-label-md font-label-md flex items-center gap-1 hover:underline">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="p-md font-medium">Order ID</th>
+<th class="p-md font-medium">Student</th>
+<th class="p-md font-medium">Items</th>
+<th class="p-md font-medium">Status</th>
+<th class="p-md font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md text-on-background divide-y divide-outline-variant">
+<!-- Row 1: Pending -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md font-mono text-on-surface-variant">#UD-8942</td>
+<td class="p-md font-medium">Sarah Jenkins</td>
+<td class="p-md text-on-surface-variant">2x Veg Burger, 1x Cola</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Pending
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="bg-primary text-on-primary px-3 py-1.5 rounded-lg text-label-md font-label-md hover:bg-on-primary-fixed-variant transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+                                    Accept
+                                </button>
+</td>
+</tr>
+<!-- Row 2: Preparing -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md font-mono text-on-surface-variant">#UD-8941</td>
+<td class="p-md font-medium">Michael Chang</td>
+<td class="p-md text-on-surface-variant">1x Chicken Bowl, Extra Rice</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#fff3cd] text-[#856404]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffc107]"></span> Preparing
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="bg-surface-variant text-on-surface-variant px-3 py-1.5 rounded-lg text-label-md font-label-md hover:bg-surface-container-highest transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 border border-outline-variant">
+                                    Mark Ready
+                                </button>
+</td>
+</tr>
+<!-- Row 3: Ready -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md font-mono text-on-surface-variant">#UD-8940</td>
+<td class="p-md font-medium">Emma Stone</td>
+<td class="p-md text-on-surface-variant">1x Iced Latte</td>
+<td class="p-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#d4edda] text-[#155724]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#28a745]"></span> Ready
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="text-primary hover:text-on-primary-container p-2 rounded-full hover:bg-surface-container-highest transition-colors inline-flex">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body></html>
