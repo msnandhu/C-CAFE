@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Plus, Filter, ChefHat } from 'lucide-react';
+import { Search, Plus, Minus, Filter, ChefHat, ArrowLeft } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import { getFoodItems } from '../../services/api';
 
-const MenuPage = ({ addToCart }) => {
+const MenuPage = ({ addToCart, cart, updateCartQuantity }) => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
@@ -16,12 +16,17 @@ const MenuPage = ({ addToCart }) => {
   }, []);
 
   const filteredItems = activeCategory === 'All' ? items : items.filter(item => item.category === activeCategory);
+  
+  const cartCount = cart ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0;
 
   return (
     <div className="page-container animate-fade-in" style={{ padding: 0 }}>
-      <Navbar showCart cartCount={0} />
+      <Navbar showCart cartCount={cartCount} />
       
       <div className="container" style={{ padding: '2rem 1.5rem', paddingBottom: '6rem' }}>
+        <button className="btn-secondary" style={{ padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-full)', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }} onClick={() => navigate(-1)}>
+          <ArrowLeft size={20} /> Back
+        </button>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', '@media (min-width: 992px)': { flexDirection: 'row' } }} className="menu-layout">
           
           {/* Sidebar / Topbar */}
@@ -86,7 +91,7 @@ const MenuPage = ({ addToCart }) => {
                     <div>
                       <div className="flex-between" style={{ marginBottom: '0.5rem' }}>
                         <h3 style={{ margin: 0, fontSize: '1.4rem' }}>{item.name}</h3>
-                        <span style={{ display: 'inline-block', width: '16px', height: '16px', borderRadius: '50%', border: '2px solid', borderColor: item.veg ? 'var(--success)' : 'var(--danger)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <span style={{ display: 'inline-flex', width: '16px', height: '16px', borderRadius: '50%', border: '2px solid', borderColor: item.veg ? 'var(--success)' : 'var(--danger)', justifyContent: 'center', alignItems: 'center' }}>
                           <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: item.veg ? 'var(--success)' : 'var(--danger)' }}></span>
                         </span>
                       </div>
@@ -96,9 +101,27 @@ const MenuPage = ({ addToCart }) => {
                     <div className="flex-between" style={{ marginTop: 'auto' }}>
                       <span style={{ fontWeight: 700, fontSize: '1.6rem' }} className="text-gold">₹{item.price}</span>
                       {item.available ? (
-                        <button className="btn btn-primary" style={{ padding: '0.75rem', borderRadius: '50%', width: '45px', height: '45px', boxShadow: 'var(--shadow-glow)' }} onClick={(e) => { e.stopPropagation(); addToCart({ ...item, quantity: 1 }); }}>
-                          <Plus size={24} />
-                        </button>
+                        (() => {
+                          const cartItem = cart?.find(c => c.id === item.id);
+                          if (cartItem) {
+                            return (
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.05)', padding: '0.25rem', borderRadius: 'var(--radius-full)', border: '1px solid rgba(255,255,255,0.1)' }} onClick={(e) => e.stopPropagation()}>
+                                <button className="btn-secondary" style={{ padding: '0.4rem', borderRadius: '50%', border: 'none' }} onClick={() => updateCartQuantity(item.id, -1)}>
+                                  <Minus size={16} />
+                                </button>
+                                <span style={{ fontWeight: 600, width: '20px', textAlign: 'center', fontSize: '1rem' }}>{cartItem.quantity}</span>
+                                <button className="btn-secondary" style={{ padding: '0.4rem', borderRadius: '50%', border: 'none' }} onClick={() => updateCartQuantity(item.id, 1)}>
+                                  <Plus size={16} />
+                                </button>
+                              </div>
+                            );
+                          }
+                          return (
+                            <button className="btn btn-primary" style={{ padding: '0.75rem', borderRadius: '50%', width: '45px', height: '45px', boxShadow: 'var(--shadow-glow)' }} onClick={(e) => { e.stopPropagation(); addToCart({ ...item, quantity: 1 }); }}>
+                              <Plus size={24} />
+                            </button>
+                          );
+                        })()
                       ) : (
                         <span className="badge badge-danger">Out of stock</span>
                       )}

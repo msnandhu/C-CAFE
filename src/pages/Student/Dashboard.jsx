@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Wallet, Utensils, Clock, ChevronRight, Sparkles } from 'lucide-react';
+import { Wallet, Clock, ChevronRight, Sparkles } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import { getOrders } from '../../services/api';
 
-const Dashboard = ({ student }) => {
+const Dashboard = ({ student, cart }) => {
   const navigate = useNavigate();
   const [recentOrders, setRecentOrders] = useState([]);
 
@@ -14,9 +14,11 @@ const Dashboard = ({ student }) => {
     });
   }, [student]);
 
+  const cartCount = cart ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0;
+
   return (
     <div className="page-container animate-fade-in" style={{ padding: 0 }}>
-      <Navbar />
+      <Navbar showCart cartCount={cartCount} />
       
       <div className="container" style={{ padding: '2rem 1.5rem' }}>
         

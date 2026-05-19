@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Trash2, Minus, Plus, CreditCard, QrCode, ShoppingCart, ArrowRight } from 'lucide-react';
+import { Trash2, Minus, Plus, CreditCard, QrCode, ShoppingCart, ArrowRight, ArrowLeft } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import { placeOrder } from '../../services/api';
 
@@ -14,6 +14,10 @@ const CartCheckout = ({ cart, updateCartQuantity, student, clearCart }) => {
   const total = subtotal + taxes;
 
   const handleCheckout = async () => {
+    if (!student) {
+      navigate('/login');
+      return;
+    }
     setIsProcessing(true);
     try {
       const order = await placeOrder(student.rollNo, cart, total);
@@ -27,12 +31,12 @@ const CartCheckout = ({ cart, updateCartQuantity, student, clearCart }) => {
 
   if (cart.length === 0) {
     return (
-      <div className="page-container flex-center" style={{ padding: 0 }}>
+      <div className="page-container animate-fade-in" style={{ padding: 0 }}>
         <Navbar showCart={false} />
-        <div style={{ textAlign: 'center', color: 'var(--text-muted)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="container flex-center" style={{ minHeight: '80vh', flexDirection: 'column' }}>
           <ShoppingCart size={100} style={{ marginBottom: '2rem', opacity: 0.1 }} />
           <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Your cart is empty</h1>
-          <p style={{ marginBottom: '3rem', fontSize: '1.2rem', maxWidth: '400px' }}>Your culinary journey hasn't started yet. Add some delicious items to get started.</p>
+          <p style={{ marginBottom: '3rem', fontSize: '1.2rem', maxWidth: '400px', textAlign: 'center', color: 'var(--text-muted)' }}>Your culinary journey hasn't started yet. Add some delicious items to get started.</p>
           <button className="btn btn-primary pulse-button" style={{ padding: '1.25rem 3rem' }} onClick={() => navigate('/menu')}>
             Browse Menu
           </button>
@@ -46,6 +50,9 @@ const CartCheckout = ({ cart, updateCartQuantity, student, clearCart }) => {
       <Navbar />
       
       <div className="container" style={{ padding: '2rem 1.5rem', paddingBottom: '6rem' }}>
+        <button className="btn-secondary" style={{ padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-full)', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', width: 'fit-content' }} onClick={() => navigate(-1)}>
+          <ArrowLeft size={20} /> Back
+        </button>
         <h1 style={{ marginBottom: '3rem' }}>Secure Checkout</h1>
 
         <div className="checkout-layout" style={{ display: 'flex', flexDirection: 'column', gap: '3rem', '@media (min-width: 992px)': { flexDirection: 'row' } }}>
@@ -128,7 +135,7 @@ const CartCheckout = ({ cart, updateCartQuantity, student, clearCart }) => {
                       </div>
                       <div>
                         <h4 style={{ margin: 0, fontSize: '1.2rem' }}>Student Wallet</h4>
-                        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', margin: 0, marginTop: '0.25rem' }}>Balance: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>₹{student.wallet}</span></p>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', margin: 0, marginTop: '0.25rem' }}>Balance: <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>₹{student?.wallet || 0}</span></p>
                       </div>
                     </div>
                     <div style={{ width: '28px', height: '28px', borderRadius: '50%', border: `2px solid ${paymentMethod === 'wallet' ? 'var(--accent-primary)' : 'var(--text-muted)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

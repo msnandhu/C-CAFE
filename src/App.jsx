@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // Student Pages
@@ -52,9 +52,9 @@ function App() {
           {/* Student Routes */}
           <Route path="/" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage setStudent={setStudent} />} />
-          <Route path="/dashboard" element={student ? <Dashboard student={student} /> : <Navigate to="/login" />} />
-          <Route path="/menu" element={<MenuPage addToCart={addToCart} />} />
-          <Route path="/item/:id" element={<ItemDetail addToCart={addToCart} />} />
+          <Route path="/dashboard" element={student ? <Dashboard student={student} cart={cart} /> : <Navigate to="/login" />} />
+          <Route path="/menu" element={<MenuPage addToCart={addToCart} cart={cart} updateCartQuantity={updateCartQuantity} />} />
+          <Route path="/item/:id" element={<ItemDetail addToCart={addToCart} cart={cart} />} />
           <Route path="/cart" element={<CartCheckout cart={cart} updateCartQuantity={updateCartQuantity} student={student} clearCart={clearCart} />} />
           <Route path="/track/:orderId" element={<LiveTracking />} />
           <Route path="/profile" element={student ? <ProfilePage student={student} setStudent={setStudent} /> : <Navigate to="/login" />} />

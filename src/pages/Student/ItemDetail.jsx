@@ -4,7 +4,7 @@ import { Minus, Plus, ShoppingCart, Clock, ArrowLeft } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import { getFoodItems } from '../../services/api';
 
-const ItemDetail = ({ addToCart }) => {
+const ItemDetail = ({ addToCart, cart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState(null);
@@ -24,9 +24,11 @@ const ItemDetail = ({ addToCart }) => {
     navigate('/menu');
   };
 
+  const cartCount = cart ? cart.reduce((acc, item) => acc + item.quantity, 0) : 0;
+
   return (
     <div className="page-container animate-fade-in" style={{ padding: 0 }}>
-      <Navbar showCart cartCount={0} />
+      <Navbar showCart cartCount={cartCount} />
       
       <div className="container" style={{ padding: '2rem 1.5rem', paddingBottom: '6rem' }}>
         <button className="btn-secondary" style={{ padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-full)', marginBottom: '2rem' }} onClick={() => navigate('/menu')}>
@@ -54,7 +56,7 @@ const ItemDetail = ({ addToCart }) => {
             <h1 style={{ marginBottom: '1rem', fontSize: '3.5rem', lineHeight: 1.1 }}>{item.name}</h1>
             
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-              <span style={{ display: 'inline-block', width: '24px', height: '24px', borderRadius: '50%', border: '2px solid', borderColor: item.veg ? 'var(--success)' : 'var(--danger)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <span style={{ display: 'inline-flex', width: '24px', height: '24px', borderRadius: '50%', border: '2px solid', borderColor: item.veg ? 'var(--success)' : 'var(--danger)', justifyContent: 'center', alignItems: 'center' }}>
                 <span style={{ display: 'inline-block', width: '10px', height: '10px', borderRadius: '50%', background: item.veg ? 'var(--success)' : 'var(--danger)' }}></span>
               </span>
               <span style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>{item.veg ? 'Pure Vegetarian' : 'Non-Vegetarian'}</span>
