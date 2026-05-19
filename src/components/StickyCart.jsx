@@ -6,8 +6,8 @@ const StickyCart = ({ cart }) => {
   const location = useLocation();
 
   // Don't show sticky cart on checkout, track, login, or admin pages
-  const hiddenPaths = ['/cart', '/track', '/login', '/', '/admin'];
-  if (cart.length === 0 || hiddenPaths.some(path => location.pathname.startsWith(path))) {
+  const hiddenPaths = ['/cart', '/track', '/login', '/admin'];
+  if (cart.length === 0 || location.pathname === '/' || hiddenPaths.some(path => location.pathname.startsWith(path))) {
     return null;
   }
 
