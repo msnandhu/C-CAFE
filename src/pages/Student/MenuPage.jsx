@@ -4,7 +4,7 @@ import { Search, Plus, Filter, ChefHat } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import { getFoodItems } from '../../services/api';
 
-const MenuPage = () => {
+const MenuPage = ({ addToCart }) => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
@@ -96,7 +96,7 @@ const MenuPage = () => {
                     <div className="flex-between" style={{ marginTop: 'auto' }}>
                       <span style={{ fontWeight: 700, fontSize: '1.6rem' }} className="text-gold">₹{item.price}</span>
                       {item.available ? (
-                        <button className="btn btn-primary" style={{ padding: '0.75rem', borderRadius: '50%', width: '45px', height: '45px', boxShadow: 'var(--shadow-glow)' }} onClick={(e) => { e.stopPropagation(); navigate(`/item/${item.id}`); }}>
+                        <button className="btn btn-primary" style={{ padding: '0.75rem', borderRadius: '50%', width: '45px', height: '45px', boxShadow: 'var(--shadow-glow)' }} onClick={(e) => { e.stopPropagation(); addToCart({ ...item, quantity: 1 }); }}>
                           <Plus size={24} />
                         </button>
                       ) : (

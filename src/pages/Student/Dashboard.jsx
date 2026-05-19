@@ -21,14 +21,14 @@ const Dashboard = ({ student }) => {
       <div className="container" style={{ padding: '2rem 1.5rem' }}>
         
         {/* Massive Hero Section */}
-        <div className="card glass-intense" style={{ position: 'relative', overflow: 'hidden', padding: '4rem 3rem', marginBottom: '3rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderRadius: 'var(--radius-xl)' }} onClick={() => navigate('/menu')}>
-          <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '60%', background: 'radial-gradient(ellipse at right, rgba(251, 191, 36, 0.25), transparent)', zIndex: 0 }}></div>
+        <div className="card glass-intense hero-layout" style={{ position: 'relative', overflow: 'hidden', padding: '4rem 3rem', marginBottom: '3rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderRadius: 'var(--radius-xl)', gap: '2rem' }} onClick={() => navigate('/menu')}>
+          <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '100%', background: 'radial-gradient(ellipse at right, rgba(251, 191, 36, 0.25), transparent)', zIndex: 0 }}></div>
           
-          <div style={{ position: 'relative', zIndex: 1, maxWidth: '60%' }}>
+          <div style={{ position: 'relative', zIndex: 1, flex: 1 }}>
             <p style={{ color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600, marginBottom: '0.5rem' }}>Welcome to C-Cafe</p>
-            <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem', lineHeight: 1.1 }}>{student.name}, <br/>Hungry for more?</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', marginBottom: '2rem', maxWidth: '80%' }}>Discover today's exclusive culinary selections crafted by our master chefs.</p>
-            <button className="btn btn-primary pulse-button" style={{ padding: '1rem 2.5rem', fontSize: '1.2rem' }}>
+            <h1 className="hero-title" style={{ marginBottom: '1rem', lineHeight: 1.1 }}>{student.name}, <br/>Hungry for more?</h1>
+            <p className="hero-subtitle" style={{ color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: '80%' }}>Discover today's exclusive culinary selections crafted by our master chefs.</p>
+            <button className="btn btn-primary pulse-button hero-btn" style={{ padding: '1rem 2.5rem' }}>
               <Sparkles size={20} /> Explore Gourmet Menu
             </button>
           </div>
@@ -81,6 +81,17 @@ const Dashboard = ({ student }) => {
           </div>
         )}
       </div>
+      <style>{`
+        .hero-title { font-size: 3.5rem; }
+        .hero-subtitle { font-size: 1.2rem; }
+        .hero-btn { font-size: 1.2rem; }
+        @media (max-width: 768px) {
+          .hero-layout { flex-direction: column !important; padding: 2rem 1.5rem !important; align-items: flex-start !important; }
+          .hero-title { font-size: 2.2rem; }
+          .hero-subtitle { font-size: 1rem; max-width: 100% !important; }
+          .hero-btn { width: 100%; font-size: 1.1rem; }
+        }
+      `}</style>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import ItemDetail from './pages/Student/ItemDetail';
 import CartCheckout from './pages/Student/CartCheckout';
 import LiveTracking from './pages/Student/LiveTracking';
 import ProfilePage from './pages/Student/ProfilePage';
+import StickyCart from './components/StickyCart';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/AdminLogin';
@@ -52,7 +53,7 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/login" element={<LoginPage setStudent={setStudent} />} />
           <Route path="/dashboard" element={student ? <Dashboard student={student} /> : <Navigate to="/login" />} />
-          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/menu" element={<MenuPage addToCart={addToCart} />} />
           <Route path="/item/:id" element={<ItemDetail addToCart={addToCart} />} />
           <Route path="/cart" element={<CartCheckout cart={cart} updateCartQuantity={updateCartQuantity} student={student} clearCart={clearCart} />} />
           <Route path="/track/:orderId" element={<LiveTracking />} />
@@ -64,6 +65,7 @@ function App() {
           <Route path="/admin/orders" element={<OrderManagement />} />
           <Route path="/admin/kitchen" element={<KitchenDashboard />} />
         </Routes>
+        <StickyCart cart={cart} updateCartQuantity={updateCartQuantity} />
       </div>
     </Router>
   );
