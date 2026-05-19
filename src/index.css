@@ -274,10 +274,7 @@ h3 { font-size: 1.75rem; }
 /* Page Transitions */
 .page-container {
   min-height: 100vh;
-  padding: 1.5rem 1rem;
-  max-width: 600px;
   width: 100%;
-  margin: 0 auto;
 }
 
 /* Navbar */

@@ -40,7 +40,7 @@ const LiveTracking = () => {
         </button>
       </div>
       
-      <div className="container" style={{ paddingBottom: '2rem' }}>
+      <div className="container" style={{ paddingBottom: '2rem', maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem', marginTop: '1rem' }}>
           <p style={{ color: 'var(--accent-primary)', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 600, marginBottom: '0.5rem' }}>Your Token</p>
           <h1 className="text-gold" style={{ fontSize: '5rem', margin: 0, textShadow: 'var(--shadow-glow-intense)' }}>{order.token}</h1>

@@ -22,7 +22,7 @@ const WelcomePage = () => {
           Experience gourmet college dining without the wait.
         </p>
         
-        <button className="btn btn-primary pulse-button" style={{ width: '90%', padding: '1.25rem' }} onClick={() => navigate('/login')}>
+        <button className="btn btn-primary pulse-button" style={{ width: '100%', maxWidth: '400px', padding: '1.25rem', fontSize: '1.2rem' }} onClick={() => navigate('/login')}>
           Enter Canteen
           <ArrowRight size={24} />
         </button>

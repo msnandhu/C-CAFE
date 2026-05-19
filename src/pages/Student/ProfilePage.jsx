@@ -24,7 +24,7 @@ const ProfilePage = ({ student, setStudent }) => {
     <div className="page-container animate-fade-in" style={{ padding: 0 }}>
       <Navbar title="My Profile" showBack />
       
-      <div className="container" style={{ paddingBottom: '2rem' }}>
+      <div className="container" style={{ paddingBottom: '2rem', maxWidth: '800px' }}>
         <div className="card glass flex-center" style={{ flexDirection: 'column', padding: '2rem', marginBottom: '1.5rem', background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), var(--bg-card))' }}>
           <div style={{ background: 'var(--accent-primary)', padding: '1rem', borderRadius: '50%', marginBottom: '1rem', boxShadow: 'var(--shadow-glow)' }}>
             <User size={48} color="white" />
