@@ -1,61 +1,71 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, Lock, ArrowRight } from 'lucide-react';
+import { User, Lock, LogIn } from 'lucide-react';
 
 const LoginPage = ({ setStudent }) => {
-  const navigate = useNavigate();
   const [rollNo, setRollNo] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (rollNo.length > 3) {
-      setStudent({ rollNo, name: 'Alex Doe', wallet: 250 });
+    if (rollNo && password) {
+      setStudent({
+        name: 'Alex Johnson',
+        rollNo: rollNo.toUpperCase(),
+        wallet: 500
+      });
       navigate('/dashboard');
     }
   };
 
   return (
-    <div className="page-container flex-center">
-      <div className="card glass animate-fade-in" style={{ width: '100%' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Student Login</h2>
-        
-        <form onSubmit={handleLogin}>
+    <div className="page-container flex-center" style={{ minHeight: '100vh', position: 'relative' }}>
+      <div style={{ position: 'absolute', top: '10%', left: '-10%', width: '300px', height: '300px', background: 'var(--accent-primary)', filter: 'blur(150px)', opacity: 0.15, zIndex: -1 }}></div>
+      <div style={{ position: 'absolute', bottom: '10%', right: '-10%', width: '300px', height: '300px', background: 'var(--accent-secondary)', filter: 'blur(150px)', opacity: 0.15, zIndex: -1 }}></div>
+
+      <div style={{ width: '100%', maxWidth: '400px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h1 className="text-gradient">Welcome Back</h1>
+          <p style={{ color: 'var(--text-secondary)' }}>Sign in to continue your culinary journey</p>
+        </div>
+
+        <form onSubmit={handleLogin} className="card glass-intense" style={{ padding: '2.5rem 2rem' }}>
           <div className="input-group">
-            <label>Roll Number / Register Number</label>
+            <label>Roll Number</label>
             <div style={{ position: 'relative' }}>
-              <User size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <User size={20} style={{ position: 'absolute', left: '1.25rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="text" 
                 className="input-control" 
+                style={{ paddingLeft: '3.5rem' }}
                 placeholder="e.g. 20CS001" 
-                style={{ paddingLeft: '3rem' }}
                 value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
-                required
+                required 
               />
             </div>
           </div>
-          
-          <div className="input-group" style={{ marginBottom: '2rem' }}>
-            <label>Password or OTP</label>
+
+          <div className="input-group" style={{ marginBottom: '2.5rem' }}>
+            <label>Password</label>
             <div style={{ position: 'relative' }}>
-              <Lock size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <Lock size={20} style={{ position: 'absolute', left: '1.25rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input 
                 type="password" 
-                className="input-control" 
-                placeholder="Enter password" 
-                style={{ paddingLeft: '3rem' }}
+                className="input-control"
+                style={{ paddingLeft: '3.5rem' }} 
+                placeholder="••••••••" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+                required 
               />
             </div>
           </div>
-          
-          <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-            Login securely
-            <ArrowRight size={20} />
+
+          <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '1.25rem' }}>
+            <LogIn size={20} />
+            Secure Login
           </button>
         </form>
       </div>
