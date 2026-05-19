@@ -1,12 +1,23 @@
 // Mock data for the application
 
-export const mockFoodItems = [
+export let mockFoodItems = [
   { id: 1, name: "Masala Dosa", category: "Breakfast", price: 50, veg: true, available: true, prepTime: 5, image: "https://images.unsplash.com/photo-1589301760014-d929f39ce9b1?auto=format&fit=crop&w=300&q=80", description: "Crispy rice crepe filled with spiced potato." },
   { id: 2, name: "Chicken Biryani", category: "Lunch", price: 120, veg: false, available: true, prepTime: 15, image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80", description: "Aromatic basmati rice cooked with tender chicken and spices." },
-  { id: 3, name: "Samosa", category: "Snacks", price: 15, veg: true, available: true, prepTime: 2, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=300&q=80", description: "Crispy pastry filled with spiced potatoes and peas." },
+  { id: 3, name: "Samosa", category: "Snacks", price: 15, veg: true, available: true, prepTime: 2, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=300&q=80", description: "Crispy pastry filled with spiced potatoes and peas.", inventory: 50 },
   { id: 4, name: "Fresh Lime Soda", category: "Juice", price: 30, veg: true, available: true, prepTime: 3, image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80", description: "Refreshing sweet and salt lime soda." },
   { id: 5, name: "Veg Meals", category: "Lunch", price: 80, veg: true, available: false, prepTime: 10, image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=300&q=80", description: "Complete South Indian vegetarian meal." }
 ];
+
+export const addFoodItem = (item) => {
+  const newItem = { ...item, id: mockFoodItems.length + 1 };
+  mockFoodItems = [...mockFoodItems, newItem];
+  return Promise.resolve(newItem);
+};
+
+export const updateFoodItem = (updatedItem) => {
+  mockFoodItems = mockFoodItems.map(item => item.id === updatedItem.id ? updatedItem : item);
+  return Promise.resolve(updatedItem);
+};
 
 let orders = [
   {

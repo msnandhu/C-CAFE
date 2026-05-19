@@ -15,6 +15,7 @@ import StickyCart from './components/StickyCart';
 // Admin Pages
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminMenu from './pages/Admin/AdminMenu';
 import OrderManagement from './pages/Admin/OrderManagement';
 import KitchenDashboard from './pages/Admin/KitchenDashboard';
 
@@ -36,8 +37,7 @@ function App() {
   const updateCartQuantity = (id, change) => {
     setCart(cart.map(item => {
       if (item.id === id) {
-        const newQ = item.quantity + change;
-        return newQ > 0 ? { ...item, quantity: newQ } : item;
+        return { ...item, quantity: item.quantity + change };
       }
       return item;
     }).filter(item => item.quantity > 0));
@@ -62,6 +62,7 @@ function App() {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/menu" element={<AdminMenu />} />
           <Route path="/admin/orders" element={<OrderManagement />} />
           <Route path="/admin/kitchen" element={<KitchenDashboard />} />
         </Routes>

@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar';
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState([]);
+  const [filterStatus, setFilterStatus] = useState('All');
 
   const fetchOrders = () => {
     getOrders().then(data => setOrders(data));
@@ -21,13 +22,33 @@ const OrderManagement = () => {
     fetchOrders();
   };
 
+  const filteredOrders = filterStatus === 'All' ? orders : orders.filter(o => o.status === filterStatus);
+
   return (
     <div className="page-container" style={{ padding: 0, maxWidth: '1000px' }}>
       <Navbar title="Order Management" />
       
       <div className="container" style={{ paddingBottom: '2rem' }}>
+        
+        {/* Admin Navigation */}
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', overflowX: 'auto', paddingBottom: '0.5rem', marginTop: '2rem' }}>
+          <a href="/admin/dashboard" className="btn-secondary" style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)' }}>Dashboard</a>
+          <a href="/admin/menu" className="btn-secondary" style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)' }}>Menu Management</a>
+          <a href="/admin/orders" className="btn btn-primary" style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)' }}>Order Management</a>
+          <a href="/admin/kitchen" className="btn-secondary" style={{ padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)' }}>Kitchen Screen</a>
+        </div>
+
         <div className="flex-between" style={{ marginBottom: '1.5rem' }}>
-          <h3>All Orders</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <h3 style={{ margin: 0 }}>Orders List</h3>
+            <select className="input-control" style={{ padding: '0.25rem 0.5rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-primary)', borderRadius: 'var(--radius-md)' }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+              <option value="All">All Status</option>
+              <option value="Received">Received</option>
+              <option value="Preparing">Preparing</option>
+              <option value="Ready">Ready</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+          </div>
           <button className="btn btn-secondary">
             <QrCode size={18} /> Scan QR
           </button>
@@ -46,7 +67,7 @@ const OrderManagement = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map(order => (
+              {filteredOrders.map(order => (
                 <tr key={order.id} style={{ borderBottom: '1px solid var(--border-color)' }}>
                   <td style={{ padding: '1rem', fontWeight: 600, color: 'var(--accent-primary)' }}>{order.token}</td>
                   <td style={{ padding: '1rem' }}>{order.studentId}</td>
