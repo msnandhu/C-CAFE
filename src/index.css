@@ -240,7 +240,23 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   padding: 2rem 1rem;
   max-width: 600px; /* Mobile first approach for student app */
+  width: 100%;
   margin: 0 auto;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .page-container {
+    padding: 1rem 0.5rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+  .navbar {
+    padding: 0.75rem;
+  }
 }
 
 /* Navbar */
